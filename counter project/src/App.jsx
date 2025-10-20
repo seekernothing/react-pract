@@ -3,7 +3,7 @@ import { useState } from "react"
 
 const Counter = ()=>{
 
-   const style = { textAlign: "center",marginTop:"10px" };
+   const style = { textAlign: "center",marginTop:"20px" };
 
   const [count,setCount] = useState(0)
 
