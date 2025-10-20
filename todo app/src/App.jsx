@@ -6,8 +6,6 @@ function App() {
   const[input,setInput]= useState("")
   const[tasks,setTasks] = useState([])
 
-  console.log(input);
-  console.log(setTasks)
   
   
 
@@ -16,6 +14,13 @@ function App() {
     if(input.trim()==="") return
     setTasks([...tasks,input])
     setInput("")
+
+  }
+
+  function deletefn(i){
+
+    const newTasks = tasks.filter((_, inx)=> inx!==i)
+    setTasks(newTasks)
 
   }
 
@@ -41,7 +46,10 @@ function App() {
       <div>
         <ul>
         {tasks.map((t,i)=>(
-          <li key={i}>{t}</li>
+          <li key={i}>{t}
+          
+          <button onClick={()=>deletefn(i)}>Delete</button>
+          </li>
         ))}
         </ul>
       </div>
