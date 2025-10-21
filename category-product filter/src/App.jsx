@@ -18,6 +18,8 @@ function App() {
 
   const filteredProducts = products.filter(p=>p.category===selectedcat)
 
+  
+
   return (
     <>
       <h1>Category-product filter</h1>
@@ -38,7 +40,10 @@ function App() {
 
       <div>
         <ul>
-          {filteredProducts.map((p,i)=>(
+         
+         {selectedcat!==""? filteredProducts.map((p,i)=>(
+            <li key={i}>{p.name}</li>
+          )):products.map((p,i)=>(
             <li key={i}>{p.name}</li>
           ))}
 
