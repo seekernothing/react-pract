@@ -2,55 +2,77 @@
 import { useState } from "react";
 function App() {
 
-  const[selectedcat,setSelectedcat] = useState("")
+  let style1 = {textAlign : "center"}
+  let style2 = {listStyleType:"none"}
 
-  // App.jsx
-  const categories = ["Fruits", "Vegetables", "Dairy"];
+  const [selected, setSelected] = useState("")
 
-  const products = [
-    { name: "Apple", category: "Fruits" },
-    { name: "Banana", category: "Fruits" },
-    { name: "Carrot", category: "Vegetables" },
-    { name: "Broccoli", category: "Vegetables" },
-    { name: "Milk", category: "Dairy" },
-    { name: "Cheese", category: "Dairy" },
-  ];
+const categories = ["Fruits", "Vegetables", "Dairy"];
 
-  const filteredProducts = products.filter(p=>p.category===selectedcat)
+const products = [
+  { name: "Apple", category: "Fruits" },
+  { name: "Banana", category: "Fruits" },
+  { name: "Carrot", category: "Vegetables" },
+  { name: "Broccoli", category: "Vegetables" },
+  { name: "Milk", category: "Dairy" },
+  { name: "Cheese", category: "Dairy" },
+];
+
+ 
+  
+
+  let filteredProducts = products.filter((p) => p.category === selected);
+  
+console.log(filteredProducts);
+
+ 
 
   
 
   return (
     <>
-      <h1>Category-product filter</h1>
 
-      <div>
-        <select
-        value={selectedcat}
-        onChange={(e)=>setSelectedcat(e.target.value)}
-        >
-          <option value="">Select a category</option>
-          {categories.map((cat,i)=>(
-            <option key={i}>{cat}</option>
-          ))}
-        
-        </select>
-      </div>
+    {/* container div */}
+      <div className="container" style={style1}>
+        <h1> category-product filter</h1>
 
+         {/* category selection div */}
+        <div className="product-filter">
 
-      <div>
-        <ul>
-         
-         {selectedcat!==""? filteredProducts.map((p,i)=>(
-            <li key={i}>{p.name}</li>
-          )):products.map((p,i)=>(
-            <li key={i}>{p.name}</li>
-          ))}
+          <select
+          value={selected}
+          onChange={(e)=>setSelected(e.target.value)}
+          >
 
-        </ul>
+            <option value=""   >Select category</option>
+
+            {categories.map((cat)=>(
+              <option value={cat}>{cat}</option>
+            ))}
+
+          </select>
+
+        </div >
+            
+            {/* product display div */}
+
+            <ul style={style2}>
+              {selected!==""
+              ? filteredProducts.map((p,i)=>(
+                <li key={i} >{p.name}</li>
+              )):
+              products.map((p,i)=>(
+               <li key={i}>{p.name}</li>
+              ))
+              }
+            </ul>
+
       </div>
     </>
   );
 }
 
 export default App
+
+
+
