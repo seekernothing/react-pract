@@ -5,13 +5,29 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     todoList:[]
+   
+    
 }
+
+console.log(initialState);
+
 
 const todoReducer = createSlice({
     name:'todos',
     initialState:initialState,
     reducers:{
         addTodo(state,action){
+
+
+            console.log(action);
+
+            const newTask = {
+                id:new Date(),
+                title:action.payload
+            }
+
+            state.todoList.push(newTask)
+            
             return state
         }
     }
