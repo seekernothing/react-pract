@@ -11,6 +11,11 @@ const todoReducer = createSlice({
     name:'todos',
     initialState:initialState,
     reducers:{
-        
+        addTodo(state,action){
+            return state
+        }
     }
 })
+
+export const {addTodo} = todoReducer.actions
+export default todoReducer.reducer
