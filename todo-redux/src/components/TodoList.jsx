@@ -2,13 +2,16 @@
 import React from 'react'
 import { useState } from 'react'
 import { addTodo } from '../store/slice/todoSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const TodoList = () => {
 
     const[input,setInput] = useState("")
      const dispatch = useDispatch()
+     const{todoList} = useSelector(state=>state.todo)
 
+    // console.log(extract);
+     
 
     function handelAddtodo(){
        if(input.trim()!==""){
@@ -21,6 +24,7 @@ const TodoList = () => {
 
 
   return (
+
     <div className='container'>
 
         {/* input div */}
@@ -39,8 +43,17 @@ const TodoList = () => {
             <button onClick={handelAddtodo}>Add</button>
 
         </div>
-    </div>
-  )
-}
 
+        <div className='ul'>
+            
+               { todoList && todoList.length > 0 ? (
+                todoList.map((t)=>(
+                    <li key={t.id}>{t.title}</li>
+                ))
+               ) : null}
+            
+        </div>
+    </div>
+    )
+}
 export default TodoList

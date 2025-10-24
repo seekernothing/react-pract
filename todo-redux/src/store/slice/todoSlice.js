@@ -9,7 +9,7 @@ const initialState = {
     
 }
 
-console.log(initialState);
+
 
 
 const todoReducer = createSlice({
