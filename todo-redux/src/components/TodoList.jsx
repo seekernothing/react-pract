@@ -10,7 +10,7 @@ const TodoList = () => {
      const dispatch = useDispatch()
      const{todoList} = useSelector(state=>state.todo)
 
-    // console.log(extract);
+    console.log(extract);
      
 
     function handelAddtodo(){
