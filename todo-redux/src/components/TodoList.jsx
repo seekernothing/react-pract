@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { useState } from 'react'
-import { addTodo } from '../store/slice/todoSlice'
+import { addTodo, deleteTodo } from '../store/slice/todoSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
 const TodoList = () => {
@@ -9,10 +9,11 @@ const TodoList = () => {
     const[input,setInput] = useState("")
      const dispatch = useDispatch()
      const{todoList} = useSelector(state=>state.todo)
+     console.log(todoList)
 
     
      
-
+     //add todo
     function handelAddtodo(){
        if(input.trim()!==""){
          dispatch(addTodo(input));
@@ -21,39 +22,45 @@ const TodoList = () => {
        setInput("")
     }
 
+    // delete todo
+
+    function handelDelete(id){
+      dispatch(deleteTodo(id))
+
+    }
 
 
   return (
+    <div className="container">
+      {/* input div */}
 
-    <div className='container'>
+      <div className="innput">
+        <input
+          type="text"
+          placeholder="Enter the task"
+          name="todo"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
 
-        {/* input div */}
+        <button onClick={handelAddtodo}>Add</button>
+      </div>
 
-        <div className='innput'>
+      <div className="ul">
+        {todoList && todoList.length > 0
+          ? todoList.map((t) => (
+              <li key={t.id}>
 
-            <input
-            type='text'
-            placeholder='Enter the task'
-            name='todo'
-            value={input}
-            
-            onChange={(e)=>setInput(e.target.value)}
-            />
+                <p>{t.title}</p>
 
-            <button onClick={handelAddtodo}>Add</button>
+                 <button onClick={()=>handelDelete(t.id)}>Delete</button>
 
-        </div>
 
-        <div className='ul'>
-            
-               { todoList && todoList.length > 0 ? (
-                todoList.map((t)=>(
-                    <li key={t.id}>{t.title}</li>
-                ))
-               ) : null}
-            
-        </div>
+              </li>
+            ))
+          : null}
+      </div>
     </div>
-    )
+  );
 }
 export default TodoList
