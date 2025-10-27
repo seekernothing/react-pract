@@ -39,9 +39,30 @@ const todoReducer = createSlice({
             
 
             return state
+        },
+        editTodo(state,action){
+
+            console.log(action);
+
+            let todos = state.todoList
+
+            let getCurrentTodoIndex = todos.findIndex(item =>item.id===action.payload.currentEditedTodoId)
+
+            console.log(getCurrentTodoIndex,todos);
+
+            todos[getCurrentTodoIndex] = {
+                ...todos[getCurrentTodoIndex],
+                title:action.payload.input
+            }
+
+            state.todoList = todos
+            
+            
+
+            return state
         }
     }
 })
 
-export const {addTodo,deleteTodo} = todoReducer.actions
+export const {addTodo,deleteTodo,editTodo} = todoReducer.actions
 export default todoReducer.reducer
