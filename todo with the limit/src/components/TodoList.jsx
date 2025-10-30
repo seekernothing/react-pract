@@ -58,6 +58,8 @@ function handelDelete(i){
             </li>
           ))}
         </ul>
+
+        <p>{list.length}/{limit}</p>
       </div>
     </>
   );
