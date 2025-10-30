@@ -5,11 +5,11 @@ function App() {
 
   return (
     <>
-
-    <TodoList/>
-     
+      <div className="container">
+        <TodoList />
+      </div>
     </>
-  )
+  );
 }
 
 export default App
