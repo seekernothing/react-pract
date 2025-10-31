@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "Laptop", "visible": true },
+  { "id": 2, "name": "Phone", "visible": false },
+  { "id": 3, "name": "Headphones", "visible": true },
+   { "id": 3, "name": "Keyboard", "visible": false }
+]
