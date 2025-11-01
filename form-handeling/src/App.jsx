@@ -1,3 +1,4 @@
+import Form from "./components/Form"
 
 
 function App() {
@@ -6,7 +7,8 @@ function App() {
   return (
     <>
      <div className='container'>
-          Hello
+         
+         <Form/>
      </div>
     </>
   )
