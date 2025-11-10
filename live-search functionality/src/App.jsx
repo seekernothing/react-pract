@@ -1,3 +1,4 @@
+import LiveSearch from "./components/LiveSearch"
 
 
 function App() {
@@ -5,9 +6,11 @@ function App() {
 
   return (
     <>
-      Hello
+      <div className="container">
+        <LiveSearch />
+      </div>
     </>
-  )
+  );
 }
 
 export default App
