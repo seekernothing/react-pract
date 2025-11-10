@@ -27,7 +27,7 @@ const LiveSearch = () => {
       </div>
 
       <div className="list">
-        <ul clas>
+        <ul className="ul">
           {filteredProducts.map((p, idx) => (
             <li key={idx}>
               {" "}
