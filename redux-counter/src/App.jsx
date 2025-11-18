@@ -1,3 +1,4 @@
+import Counter from "./features/counter/Counter"
 
 
 function App() {
@@ -5,7 +6,11 @@ function App() {
 
   return (
     <>
-    <h1> Reduc counter app</h1>
+    <h1 style={{textAlign:"center"}}> Redux counter app</h1>
+
+    <div className="container">
+      <Counter/>
+    </div>
     </>
   )
 }
