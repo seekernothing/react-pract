@@ -14,7 +14,7 @@ const initialState = {
 
 const todoReducer = createSlice({
     name:'todos',
-    initialState:initialState,
+    initialState,
     reducers:{
         addTodo(state,action){
 
