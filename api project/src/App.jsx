@@ -1,11 +1,13 @@
-import Products from './components/Products'
+
+import ProductList from './features/produtlist/ProductList'
 
 const App = () => {
   return (
     <div className='container'>
 
       <h1>Api calling</h1>
-      <Products/>
+      
+      <ProductList/>
 
     </div>
   )
