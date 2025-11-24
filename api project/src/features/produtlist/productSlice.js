@@ -13,16 +13,21 @@ const productSlice = createSlice({
 
   reducers: {
     setProducts: (state, action) => {
+       console.log("setProducts ye hain --->", action.payload);
+      
       state.items = action.payload;
       state.sortedItems = action.payload;
     },
 
     setCategories: (state, action) => {
+      console.log("setCategories ye hain --->", action.payload);
+      
       state.categories = action.payload;
     },
 
     toggleCategory: (state, action) => {
       const cat = action.payload;
+      console.log("toggleCategory ye hain --->", cat);
 
       if (state.selectedCategories.includes(cat)) {
         state.selectedCategories = state.selectedCategories.filter(
@@ -36,6 +41,8 @@ const productSlice = createSlice({
       let filtered = state.items;
 
       if (state.selectedCategories.length > 0) {
+        console.log( "filtered ", filtered);
+        
         filtered = filtered.filter((p) =>
           state.selectedCategories.includes(p.category)
         );
