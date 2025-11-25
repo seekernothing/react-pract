@@ -3,5 +3,5 @@
     { "temperature": 55, "conditions": "Hot" },
     { "temperature": 18, "conditions": "Cold" },
     { "temperature": 15, "conditions": "Cold" },
-    { "temperature": 21, "conditions": "Sunny" }
+    { "temperature": 27, "conditions": "Sunny" }
 ]
