@@ -1,8 +1,11 @@
 import React from 'react'
+import Weatherapi from './components/Weatherapi'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <Weatherapi/>
+    </div>
   )
 }
 
