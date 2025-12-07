@@ -1,9 +1,15 @@
-import React from 'react'
+import ProductList from "./components/ProductList";
+import Cart from "./components/Cart";
 
-const App = () => {
+function App() {
   return (
-    <div>App</div>
-  )
+    <div style={{display:"flex"}}>
+      
+      <ProductList />
+      <hr />
+      <Cart />
+    </div>
+  );
 }
 
-export default App
+export default App;
