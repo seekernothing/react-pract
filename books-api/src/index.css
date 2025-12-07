@@ -1,0 +1,11 @@
+.container{
+    text-align: center;
+}
+.ul{
+    list-style-type: none;
+}
+.authors{
+    width: 300px;
+    text-align: center;
+    margin: auto;
+}
