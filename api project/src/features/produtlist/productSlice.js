@@ -25,6 +25,8 @@ const productSlice = createSlice({
       state.categories = action.payload;
     },
 
+    // code for toggling the category
+
     toggleCategory: (state, action) => {
       const cat = action.payload;
       console.log("toggleCategory ye hain --->", cat);
