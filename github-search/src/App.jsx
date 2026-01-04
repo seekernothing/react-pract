@@ -3,7 +3,7 @@ import GithubSearch from './components/GithubSearch'
 
 const App = () => {
   return (
-    <div>
+    <div className='conatiner'>
       
       <GithubSearch/>
     </div>
