@@ -4,3 +4,12 @@
 .conatiner{
   text-align: center;
 }
+
+button{
+  padding: 20px;
+  background-color: turquoise;
+  color: azure;
+  font-size: large;
+  cursor: pointer;
+  border-radius: 30px;
+}
