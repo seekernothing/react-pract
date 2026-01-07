@@ -10,6 +10,8 @@ const toggleSlice = createSlice({
     initialState,
     reducers:{
         setDark:(state,action)=>{
+            console.log("dark is",action.payload);
+            
             state.dark = action.payload
         }
     }
