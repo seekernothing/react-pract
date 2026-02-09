@@ -1,62 +1,52 @@
+import React, { useState } from "react";
 
-import { useState } from "react"
+const App = () => {
+  const [inp, setInp] = useState("");
+  const [todos, settodos] = useState([]);
 
-function App() {
+  const handelAdd = (inp) => {
+    const data = {
+      id: Date.now(),
+      text: inp,
+    };
+    settodos([...todos, data]);
+    setInp("");
+  };
 
-  const[input,setInput]= useState("")
-  const[tasks,setTasks] = useState([])
-
-  
-  
-
-  function add(){
-
-    if(input.trim()==="") return
-    setTasks([...tasks,input])
-    setInput("")
-
-  }
-
-  function deletefn(i){
-
-    const newTasks = tasks.filter((_, inx)=> inx!==i)
-    setTasks(newTasks)
-
-  }
-
-
+  const handelDlt = (id) => {
+    let newList = todos.filter((t) => t.id !== id);
+    settodos(newList);
+  };
 
   return (
-    <>
-      <h1>Todo App</h1>
-
-
+    <div className="container" style={{textAlign:"center"}}>
       <div>
-
+        {/* div to take inputs */}
         <input
-        value={input}
-        type="text"
-        placeholder="Enter your task"
-        onChange={(e)=>setInput(e.target.value)}
+          type="text"
+          placeholder="Enter your task"
+          value={inp}
+          onChange={(e) => setInp(e.target.value)}
         />
 
-        <button onClick={add}>Add</button>
+        <button onClick={() => handelAdd(inp)}>Add</button>
       </div>
 
       <div>
-        <ul>
-        {tasks.map((t,i)=>(
-          <li key={i}>{t}
-          
-          <button onClick={()=>deletefn(i)}>Delete</button>
-          </li>
-        ))}
+        {/* div to display todos */}
+        <ul style={{listStyleType:"none"}}>
+          {todos.map((t) => (
+            <li key={t.id}>
+              {t.text}
+              <span>
+                <button onClick={() => handelDlt(t.id)}>Delete</button>
+              </span>
+            </li>
+          ))}
         </ul>
       </div>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
-
-
+export default App;
